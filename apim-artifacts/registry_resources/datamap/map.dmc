@@ -1,0 +1,12 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+
+outputroot =  {};
+outputroot.location =  {};
+outputroot.location.state = inputroot.address.state;
+outputroot.location.city = inputroot.address.city;
+return outputroot;
+};
+
+
+

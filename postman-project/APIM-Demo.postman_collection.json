@@ -1,0 +1,262 @@
+{
+	"variables": [],
+	"info": {
+		"name": "APIM-Demo",
+		"_postman_id": "08eb78cb-dd1e-b1ce-1b3e-4fdaeb6320cd",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "APIM",
+			"description": "",
+			"item": [
+				{
+					"name": "PayloadTransform",
+					"request": {
+						"url": "https://localhost:8243/datamap/1.0.0/send/location",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": {\n    \t\"number\": \"20\",\n    \t\"street\": \"havelock road\",\n        \"state\": \"colombo\",\n        \"city\": \"aaaaa\",\n        \"zip\": \"00600\",\n        \"country\": \"LK\"\n    }\n}"
+						},
+						"description": "Generated from a curl request: \ncurl -k -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer 384a4970-19e9-3d73-a44e-791b3be63b1c' -d '{\\\"address\\\":{\\\"number\\\":\\\"20\\\",\\\"street\\\":\\\"havelock road\\\",\\\"state\\\":\\\"colombo\\\",\\\"city\\\":\\\"aaaaa\\\",\\\"zip\\\":\\\"00600\\\",\\\"country\\\":\\\"LK\\\"}}' 'https://192.168.1.8:8243/datamap/1.0.0/send/location'"
+					},
+					"response": []
+				},
+				{
+					"name": "Orchestration",
+					"request": {
+						"url": "https://localhost:8243/chain/1.0.0/conditions/q/NJ/Westwood",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Generated from a curl request: \ncurl -X GET --header 'Accept: application/octet-stream' --header 'Authorization: Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0' 'https://192.168.1.8:8243/chain/1.0.0/conditions/q/NJ/Westwood'"
+					},
+					"response": []
+				},
+				{
+					"name": "XmlToJson",
+					"request": {
+						"url": "https://localhost:8243/xml/1.0.0/send/location",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<location>\n\t<state>aaaaa</state>\n\t<city>colombo</city>\n</location>"
+						},
+						"description": "Generated from a curl request: \ncurl -k -X POST --header 'Content-Type: application/xml' --header 'Accept: application/xml' --header 'Authorization: Bearer 384a4970-19e9-3d73-a44e-791b3be63b1c' -d '<location> \\ \n   <state>aaaaa</state> \\ \n   <city>colombo</city> \\ \n </location>' 'https://192.168.1.8:8243/xml/1.0.0/send/location'"
+					},
+					"response": []
+				},
+				{
+					"name": "UrlTransform",
+					"request": {
+						"url": "https://localhost:8243/transform/1.0.0/weather/state/NJ/city/Westwood",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Generated from a curl request: \ncurl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0' 'https://192.168.1.8:8243/transform/1.0.0/weather/state/NJ/city/Westwood'"
+					},
+					"response": []
+				},
+				{
+					"name": "RestToRest",
+					"request": {
+						"url": "https://localhost:8243/restToRest/1.0.0/hello/WSO2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Generated from a curl request: \ncurl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0' 'https://192.168.1.8:8243/restToRest/1.0.0/hello/WSO2'"
+					},
+					"response": []
+				},
+				{
+					"name": "RestToSoap",
+					"request": {
+						"url": "https://localhost:8243/RestToSoap/1.0.0/soapLocationService",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:loc=\"http://www.example.org/location/\">\n    <soapenv:Header/>\n    <soapenv:Body>\n       <loc:Location>\n          <state>NJ</state>\n          <city>Westwood</city>\n       </loc:Location>\n    </soapenv:Body>\n </soapenv:Envelope>"
+						},
+						"description": "Generated from a curl request: \ncurl -X POST --header 'Content-Type: application/xml' --header 'Accept: application/xml' --header 'Authorization: Bearer c99acc4c-bdca-361a-957b-e66ea8b085b0' -d '<soapenv:Envelope xmlns:soapenv=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\" xmlns:loc=\\\"http://www.example.org/location/\\\"> \\ \n    <soapenv:Header/> \\ \n    <soapenv:Body> \\ \n       <loc:Location> \\ \n          <state>NJ</state> \\ \n          <city>Westwood</city> \\ \n       </loc:Location> \\ \n    </soapenv:Body> \\ \n </soapenv:Envelope>' 'https://192.168.1.8:8243/RestToSoap/1.0.0/soapLocationService'"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Backend",
+			"description": "",
+			"item": [
+				{
+					"name": "GetFahrenheit",
+					"request": {
+						"url": "http://localhost:8080/service/getFahrenheit/30",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"colombo\",\n    \"city\": \"aaaaa\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getLocation",
+					"request": {
+						"url": "http://localhost:8080/service/conditions/q/colombo/aaa",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Hello",
+					"request": {
+						"url": "http://localhost:8080/service/hello/WSO2",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "postLocation",
+					"request": {
+						"url": "http://localhost:8080/service/send/location",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": {\n        \"state\": \"colombo\",\n        \"city\": \"aaaaa\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SoapService",
+					"request": {
+						"url": "http://localhost:8280/services/soapLocationService",
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "urn:mediate",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:loc=\"http://www.example.org/location/\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <loc:Location>\n         <state>NJ</state>\n         <city>Westwood</city>\n      </loc:Location>\n   </soapenv:Body>\n</soapenv:Envelope>"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

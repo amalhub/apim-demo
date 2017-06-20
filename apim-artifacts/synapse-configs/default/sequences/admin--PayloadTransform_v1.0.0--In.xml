@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse"
+          name="admin--PayloadTransform:v1.0.0--In">
+   <log level="custom">
+	<property name="datamapper" value="Tranforming Payload"/>
+   </log>
+   <datamapper config="conf:/datamapper/map.dmc"
+               inputSchema="conf:/datamapper/map_inputSchema.json"
+               outputSchema="conf:/datamapper/map_outputSchema.json"
+               inputType="JSON"
+               outputType="JSON"/>
+</sequence>

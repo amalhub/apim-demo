@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse"
+          name="admin--URLTransform:v1.0.0--In">
+   <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+</sequence>

@@ -1,0 +1,1 @@
+{"swagger":"2.0","paths":{"/hello/{name}":{"get":{"responses":{"200":{"description":""}},"parameters":[{"name":"name","in":"path","allowMultiple":false,"required":true,"type":"string"}],"x-auth-type":"Application & Application User","x-throttling-tier":"Unlimited"}}},"info":{"title":"RestToRestAPI","version":"1.0.0"}}

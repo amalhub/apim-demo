@@ -1,0 +1,22 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "root",
+  "type" : "object",
+  "properties" : {
+    "location" : {
+      "id" : "http://wso2jsonschema.org/location",
+      "type" : "object",
+      "properties" : {
+        "state" : {
+          "id" : "http://wso2jsonschema.org/location/state",
+          "type" : "string"
+        },
+        "city" : {
+          "id" : "http://wso2jsonschema.org/location/city",
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
