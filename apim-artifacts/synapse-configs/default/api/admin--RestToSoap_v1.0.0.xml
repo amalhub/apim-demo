@@ -12,6 +12,7 @@
                    expression="get-property('SYSTEM_TIME')"/>
          <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
             <then>
+	       <property name="messageType" value="application/xml" scope="axis2"/>
                <send>
                   <endpoint name="admin--RestToSoap_APIproductionEndpoint_0">
                      <address uri="http://localhost:8280/services"/>
@@ -26,6 +27,7 @@
       </inSequence>
       <outSequence>
          <class name="org.wso2.carbon.apimgt.gateway.handlers.analytics.APIMgtResponseHandler"/>
+	 <property name="messageType" value="application/json" scope="axis2"/>
          <send/>
       </outSequence>
    </resource>
