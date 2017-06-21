@@ -6,8 +6,25 @@
    <description/>
    <target>
       <inSequence>
-         <respond/>
+            <property expression="//state/text()" name="uri.var.state" scope="default" type="STRING"/>
+            <property expression="//city/text()" name="uri.var.city" scope="default" type="STRING"/>
+            <property name="POST_TO_URI" value="true" scope="axis2"/>
+	    <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <log level="custom">
+                <property expression="get-property('uri.var.state')" name="state"/>
+                <property expression="get-property('uri.var.city')" name="city"/>
+            </log>
+            <send>
+                <endpoint>
+                    <http method="get" uri-template="http://localhost:8080/service/conditions/q/{uri.var.state}/{uri.var.city}"/>
+                </endpoint>
+            </send>
       </inSequence>
+      <outSequence>
+	    <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
+	    <log level="full"/>
+            <send/>
+      </outSequence>
    </target>
    <publishWSDL>
       <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
@@ -61,7 +78,7 @@
          </wsdl:binding>
          <wsdl:service name="location">
             <wsdl:port binding="tns:locationSOAP" name="locationSOAP">
-               <soap:address location="http://www.example.org/"/>
+               <soap:address location="http://localhost:8280/services/soapLocationService"/>
             </wsdl:port>
          </wsdl:service>
       </wsdl:definitions>
