@@ -20,10 +20,12 @@
                </call>
 	       <log level="full"/>
 	       <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+	       <property expression="json-eval($.celsius)" name="uri.var.temp" scope="default" type="STRING"/>
+               <property name="POST_TO_URI" value="true" scope="axis2"/>
 	       <send>
                   <endpoint name="admin--ServiceOrchestration_APIproductionEndpoint_1">
-                     <http uri-template="http://localhost:8080/service/getFahrenheit/30"/>
-                     <property name="ENDPOINT_ADDRESS" value="http://localhost:8080/service/getFahrenheit/30"/>
+                     <http uri-template="http://localhost:8080/service/getFahrenheit/{uri.var.temp}"/>
+                     <property name="ENDPOINT_ADDRESS" value="http://localhost:8080/service/getFahrenheit/{uri.var.temp}"/>
                   </endpoint>
                </send>
             </then>
